@@ -1,3 +1,16 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :users
+  resources :books
+  resources :coupons
+
+  # resources :orders do
+  #   member do
+  #     get :checkout
+  #     post :pay
+  #     delete :cancel
+  #   end
+  # end
+
+  root 'homepage#index'
+
 end

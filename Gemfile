@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
 
+gem 'devise', '~> 4.7', '>= 4.7.3'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.5'
 # Use sqlite3 as the database for Active Record
@@ -35,7 +37,7 @@ group :development, :test do
   gem 'capybara', '~> 3.36'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'faker', '~> 2.20'
-  gem 'rspec-rails', '~> 5.1'
+  # gem 'rspec-rails', '~> 5.1'
 end
 
 group :development do

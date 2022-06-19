@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :books
   resources :coupons
 
-  resources :orders, only: [:index] do
+  resources :orders, except: [:edit] do
     member do
       get :checkout
       post :pay

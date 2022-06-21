@@ -5,13 +5,5 @@ Rails.application.routes.draw do
   resources :books
   resources :coupons
 
-  resources :orders, except: [:edit] do
-    member do
-      get :checkout
-      post :pay
-      delete :cancel
-    end
-  end
-
   root 'homepage#index'
 end

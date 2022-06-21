@@ -28,10 +28,8 @@ class CouponsController < ApplicationController
     respond_to do |format|
       if @coupon.save
         format.html { redirect_to coupon_url(@coupon), notice: 'Coupon was successfully created.' }
-        format.json { render :show, status: :created, location: @coupon }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @coupon.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,10 +39,8 @@ class CouponsController < ApplicationController
     respond_to do |format|
       if @coupon.update(coupon_params)
         format.html { redirect_to coupon_url(@coupon), notice: 'Coupon was successfully updated.' }
-        format.json { render :show, status: :ok, location: @coupon }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @coupon.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,7 +51,6 @@ class CouponsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to coupons_url, notice: 'Coupon was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

@@ -6,6 +6,7 @@ class CreateCoupons < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :discount_description
       t.integer :discount
+      t.integer :Serial_number
 
       t.timestamps
     end

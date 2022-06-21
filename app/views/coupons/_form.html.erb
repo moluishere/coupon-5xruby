@@ -12,8 +12,8 @@
   <% end %>
 
    <div class="field">
-    <%= form.label :serial_number, '任意流水號' %>
-    <%= form.number_field :serial_number %>
+    <%= form.label :serial, '可自訂英數序號（不填此欄會產生隨機序號）' %>
+    <%= form.text_field :serial %>
   </div>
 
   <div class="field">

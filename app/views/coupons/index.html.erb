@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>序號</th>
       <th>名稱</th>
       <th>使用規則</th>
       <th>折扣金額</th>
@@ -15,7 +16,7 @@
   <tbody>
     <% @coupons.each do |coupon| %>
       <tr>
-        <td><%= coupon.serial_number %></td>
+        <td><%= coupon.serial %></td>
         <td><%= coupon.title %></td>
         <td><%= coupon.discount_description %></td>
         <td><%= coupon.discount %></td>

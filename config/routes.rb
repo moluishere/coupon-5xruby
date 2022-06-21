@@ -3,7 +3,10 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :books
-  resources :coupons
+
+  resources :coupons do
+    post :apply_coupon
+  end
 
   root 'homepage#index'
 end

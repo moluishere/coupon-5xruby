@@ -9,6 +9,11 @@
     <%= @book.price %>
   </p>
 
+  <p>
+    <strong>可使用折價卷序號:</strong>
+    <% Coupon.set_coupons.each do |coupon| %>
+      <%= "#{coupon.serial},"%>
+    <% end %>
+  </p>
 
-<%#= link_to 'Edit', edit_book_path(@book) %> 
 <%= link_to '返回', books_path %>

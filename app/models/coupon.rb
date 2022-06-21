@@ -3,5 +3,18 @@
 class Coupon < ApplicationRecord
   validates :discount, presence: true, numericality: { greater_than: 0 }
   validates :title, presence: true
-  validates :serial_number, presence: true, uniqueness: true
+  validates :serial, uniqueness: true
+  belongs_to :books, optional: true
+  before_create :create_serial
+
+  # books/id (show.html.erb)
+  def self.set_coupons
+    Coupon.select('serial')
+  end
+
+  private
+
+  def create_serial
+    self.serial = SecureRandom.alphanumeric(8) if serial.nil?
+  end
 end

@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2022_06_19_144523) do
     t.string "title"
     t.string "discount_description"
     t.integer "discount"
-    t.integer "Serial_number"
+    t.integer "serial_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+   <div class="field">
+    <%= form.label :serial_number, '任意流水號' %>
+    <%= form.number_field :serial_number %>
+  </div>
+
   <div class="field">
     <%= form.label :title, '折價卷標題' %>
     <%= form.text_field :title %>

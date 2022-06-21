@@ -1,19 +1,18 @@
-<p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>折價卷標題:</strong>
   <%= @coupon.title %>
 </p>
 
 <p>
-  <strong>Discount description:</strong>
+  <strong>折價卷描述:</strong>
   <%= @coupon.discount_description %>
 </p>
 
 <p>
-  <strong>Discount:</strong>
+  <strong>折扣金額:</strong>
   <%= @coupon.discount %>
 </p>
 
-<%= link_to 'Edit', edit_coupon_path(@coupon) %> |
-<%= link_to 'Back', coupons_path %>
+<%= link_to '編輯', edit_coupon_path(@coupon) %> |
+<%= link_to '返回', coupons_path %>

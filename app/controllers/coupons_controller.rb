@@ -19,35 +19,25 @@ class CouponsController < ApplicationController
 
   def create
     @coupon = Coupon.new(coupon_params)
-
-    respond_to do |format|
-      if @coupon.save
-        format.html { redirect_to coupon_url(@coupon), notice: '成功建立折價卷' }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    if @coupon.save
+      redirect_to coupon_url(@coupon), notice: '成功建立折價卷'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    respond_to do |format|
-      if @coupon.update(coupon_params)
-        format.html { redirect_to coupon_url(@coupon), notice: '成功更新折價卷' }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
+    if @coupon.update(coupon_params)
+      redirect_to coupon_url(@coupon), notice: '成功更新折價卷'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @coupon.destroy
-
-    respond_to do |format|
-      format.html { redirect_to coupons_url, notice: '成功刪除折價卷.' }
-    end
+    redirect_to coupons_url, notice: '成功刪除折價卷.'
   end
-
-  def apply_coupon; end
 
   private
 

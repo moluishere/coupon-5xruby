@@ -1,26 +1,26 @@
 
-  <p>
+  <div id="book_id" data-book_id="<%= @book.id %>">
     <strong>書名:</strong>
-    <%= @book.title %>
-  </p>
+    <span><%= @book.title %></span>
+  </div>
 
-  <p>
-    <strong>價格:</strong>
-    <%= @book.price %>
-  </p>
+  <div>
+    <strong >價格:</strong>
+    <span id="book_price"><%= @book.price %></span>
+  </div>
 
-  <p>
+  <div>
     <strong>可使用折價卷序號:</strong>
     <% Coupon.set_coupons.each do |coupon| %>
-      <%= "#{coupon.serial},"%>
+      <div id = <%= coupon.serial %> > <%= "#{coupon.serial}"%> </div>
     <% end %>
-  </p>
+  </div>
 
-  <p>
+  <div data-controller = "apply-coupon">
     <label for="serial"><strong>使用折價卷(輸入序號):</strong>
-      <input type="text" name="serial" id="serial">
-      <input type="submit" value="送出">
+      <input type="text" name="serial" data-apply-coupon-target="SerialContent">
+      <input type="submit" value="送出" data-action="click -> apply-coupon#GetContent">
     </label>
-  </p>
+  </div>
 
 <%= link_to '返回', books_path %>

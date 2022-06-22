@@ -1,23 +1,23 @@
 
-<p>
+<div>
   <strong>折價卷序號:</strong>
   <%= @coupon.serial %>
-</p>
+</div>
 
-<p>
+<div>
   <strong>折價卷標題:</strong>
   <%= @coupon.title %>
-</p>
+</div>
 
-<p>
+<div>
   <strong>折價卷描述:</strong>
   <%= @coupon.discount_description %>
-</p>
+</div>
 
-<p>
+<div>
   <strong>折扣金額:</strong>
   <%= @coupon.discount %>
-</p>
+</div>
 
 <%= link_to '編輯', edit_coupon_path(@coupon) %> |
 <%= link_to '返回', coupons_path %>

@@ -7,9 +7,8 @@ class Coupon < ApplicationRecord
   belongs_to :books, optional: true
   before_create :create_serial
 
-  # books/id (show.html.erb)
   def self.set_coupons
-    Coupon.select('serial')
+    Coupon.select('serial', 'id')
   end
 
   private

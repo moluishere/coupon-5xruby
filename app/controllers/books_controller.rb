@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[show edit update destroy]
+  before_action :set_book, only: %i[show edit update destroy apply_coupon]
 
   def index
     @books = Book.all
@@ -18,30 +18,35 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
 
-    respond_to do |format|
-      if @book.save
-        format.html { redirect_to book_url(@book), notice: '商品成功建立.' }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    if @book.save
+      redirect_to book_url(@book), notice: '商品成功建立'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    respond_to do |format|
-      if @book.update(book_params)
-        format.html { redirect_to book_url(@book), notice: '商品成功更新' }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
+    if @book.update(book_params)
+      redirect_to book_url(@book), notice: '商品成功更新'
+    else
+      render :edit
     end
   end
 
   def destroy
     @book.destroy
 
-    respond_to do |format|
-      format.html { redirect_to books_url, notice: '商品成功刪除' }
+    redirect_to books_url, notice: '商品成功刪除'
+  end
+
+  def apply_coupon
+    coupon = Coupon.find_by(serial: params[:serial])
+    book = @book
+    if coupon.nil?
+      redirect_to book_path, notice: '沒有這個折價卷喔'
+    else
+      CouponService.new(book, coupon).apply!
+      redirect_to book_path, notice: '成功使用折價卷'
     end
   end
 

@@ -2,11 +2,13 @@
 
 Rails.application.routes.draw do
   devise_for :users
-  resources :books
-
-  resources :coupons do
-    post :apply_coupon
+  resources :books do
+    member do
+      post :apply_coupon
+    end
   end
+
+  resources :coupons
 
   root 'homepage#index'
 end

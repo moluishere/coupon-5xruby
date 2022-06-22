@@ -43,9 +43,12 @@ class BooksController < ApplicationController
     coupon = Coupon.find_by(serial: params[:serial])
     book = @book
     if coupon.nil?
-      redirect_to book_path, notice: '沒有這個折價卷喔'
-    else
-      CouponService.new(book, coupon).apply!
+      redirect_to book_path, notice: '沒有這個折價卷喔！'
+    elsif coupon.status?
+      redirect_to book_path, notice: '折價卷已經使用過了喔！'
+    elsif book.apply_coupon != coupon.serial
+      redirect_to book_path, notice: '折價卷只能使用一張喔！'
+    elsif CouponService.new(book, coupon).apply!
       redirect_to book_path, notice: '成功使用折價卷'
     end
   end

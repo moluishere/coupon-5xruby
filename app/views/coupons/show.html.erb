@@ -19,5 +19,10 @@
   <%= @coupon.discount %>
 </div>
 
+<div>
+  <strong>折價卷狀態:</strong>
+  <%= @coupon.status ? "已使用" : "未使用" %>
+</div>
+
 <%= link_to '編輯', edit_coupon_path(@coupon) %> |
 <%= link_to '返回', coupons_path %>

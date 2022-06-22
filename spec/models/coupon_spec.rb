@@ -13,7 +13,7 @@ RSpec.describe Coupon, type: :model do
     expect(coupon.serial).to eq 'RspecIsCool'
   end
 
-  it '不能產生同樣的折價卷序號，並且會噴錯' do
+  it '不能產生同樣的折價卷序號' do
     coupon = FactoryBot.create(:coupon, serial: 'DontRepeatMe')
 
     expect do

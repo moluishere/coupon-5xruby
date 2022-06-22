@@ -4,9 +4,7 @@ import Rails from "@rails/ujs";
 export default class extends Controller {
   static targets = ["SerialContent"];
 
-  connect() {
-    console.log();
-  }
+  connect() {}
 
   GetContent() {
     const book_id = document.querySelector("#book_id").dataset.book_id;
@@ -21,9 +19,7 @@ export default class extends Controller {
       type: "post",
       url: `/books/${book_id}/apply_coupon`,
       data,
-      success: () => {
-        // document.querySelector(`#${serial}`).style.display = "none";
-      },
+      success: () => {},
       error: () => {},
     });
   }

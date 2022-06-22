@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_21_180316) do
+ActiveRecord::Schema.define(version: 2022_06_22_180811) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "final_price"
+    t.string "apply_coupon"
   end
 
   create_table "coupons", force: :cascade do |t|
@@ -27,6 +29,7 @@ ActiveRecord::Schema.define(version: 2022_06_21_180316) do
     t.integer "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "status", default: false
     t.index ["book_id"], name: "index_coupons_on_book_id"
   end
 

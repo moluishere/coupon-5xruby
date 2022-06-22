@@ -7,8 +7,9 @@ class CouponService
   def apply!
     if @book.price >= @coupon.discount
       final_price = @book.price - @coupon.discount
-      @book.update(price: final_price)
-      @coupon.destroy
+      @book.update(final_price: final_price)
+      @book.update(apply_coupon: @coupon.serial)
+      @coupon.update(status: true)
       final_price
     else
       raise RangeError

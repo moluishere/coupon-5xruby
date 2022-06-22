@@ -14,7 +14,6 @@ class Coupon < ApplicationRecord
   private
 
   def create_serial
-    self.serial = SecureRandom.alphanumeric(8) if serial.empty?
-    p serial.empty?
+    self.serial = SecureRandom.alphanumeric(8) if serial.blank?
   end
 end

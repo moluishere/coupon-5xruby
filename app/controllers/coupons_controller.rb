@@ -47,6 +47,8 @@ class CouponsController < ApplicationController
     end
   end
 
+  def apply_coupon; end
+
   private
 
   def set_coupon

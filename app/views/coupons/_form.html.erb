@@ -12,26 +12,26 @@
   <% end %>
 
    <div class="field">
-    <%= form.label :serial, '可自訂英數序號（不填此欄會產生隨機序號）' %>
-    <%= form.text_field :serial %>
+    <%= form.label :serial, '可自訂英數序號（不填此欄會產生隨機序號）', class: "form-label" %>
+    <%= form.text_field :serial, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :title, '折價卷標題' %>
-    <%= form.text_field :title %>
+    <%= form.label :title, '折價卷標題', class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :discount_description, '使用規則' %>
-    <%= form.text_field :discount_description %>
+    <%= form.label :discount_description, '使用規則', class: "form-label" %>
+    <%= form.text_field :discount_description, class: "form-control"%>
   </div>
 
   <div class="field">
-    <%= form.label :discount, '折扣金額' %>
-    <%= form.number_field :discount %>
+    <%= form.label :discount, '折扣金額', class: "form-label" %>
+    <%= form.number_field :discount , class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit '新增' %>
+    <%= form.submit '新增', class: "btn btn-primary" %>
   </div>
 <% end %>

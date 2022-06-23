@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
+  before_action :authenticate_user! # 必須登入
   before_action :set_book, only: %i[show edit update destroy apply_coupon]
 
   def index
@@ -46,7 +47,7 @@ class BooksController < ApplicationController
       redirect_to book_path, notice: '沒有這個折價卷喔！'
     elsif coupon.status?
       redirect_to book_path, notice: '折價卷已經使用過了喔！'
-    elsif book.apply_coupon != coupon.serial
+    elsif book.apply_coupon.nil? && book.apply_coupon != coupon.serial
       redirect_to book_path, notice: '折價卷只能使用一張喔！'
     elsif CouponService.new(book, coupon).apply!
       redirect_to book_path, notice: '成功使用折價卷'

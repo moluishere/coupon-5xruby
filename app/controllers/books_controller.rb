@@ -48,7 +48,7 @@ class BooksController < ApplicationController
     elsif coupon.status?
       redirect_to book_path, notice: '折價卷已經使用過了喔！'
     elsif book.apply_coupon.nil? && book.apply_coupon != coupon.serial
-      redirect_to book_path, notice: '折價卷只能使用一張喔！'
+      redirect_to book_path, notice: '一次只能使用一張折價卷喔！'
     elsif CouponService.new(book, coupon).apply!
       redirect_to book_path, notice: '成功使用折價卷'
     end

@@ -15,7 +15,7 @@
       <% if current_user.admin?%>
         <td><%= book.title %></td>
         <td><%= book.price %></td>
-        <td><%= link_to '進入 ', book %></td>
+        <td><%= link_to '詳細資料 ', book %></td>
         <td><%= link_to '編輯', edit_book_path(book), class: "admin_link" %></td>
         <td><%= link_to '刪除', book, method: :delete, data: { confirm: '確定要刪除嗎?' }, class: "admin_link" %></td>
       </tr>
@@ -23,7 +23,7 @@
         
         <td><%= book.title %></td>
         <td><%= book.price %></td>
-        <td><%= link_to '進入 ', book%></td>
+        <td><%= link_to '詳細資料 ', book%></td>
       <% end %>
     <% end %>
   </tbody>

@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Ruby version 2.7.2
 
-Things you may want to cover:
+- rails version 6.1.5
 
-* Ruby version
+## 關於使用者
 
-* System dependencies
+- 第一個建立的帳號，為管理帳號，有權限可以建立商品、折價卷
+- 後續建立的帳號，為一般使用者，只能購買商品以及使用折價卷
 
-* Configuration
+## 關於折價卷
 
-* Database creation
+- 每張折價卷限用一次
+- 每次消費只能使用一張折價卷
+- 沒有使用期限
 
-* Database initialization
+## 關於測試
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- 建立折價卷（coupon_spec.rb）
+- 使用折價卷（apply_coupon_spec.rb）

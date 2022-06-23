@@ -18,16 +18,16 @@
   </head>
 
   <body>
-    <p class="fixed-top" id="alert" ><%= notice %></p>
+    <p class="fixed-top " id="alert" ><%= notice %></p>
     <p class="fixed-top" id="alert" ><%= alert %></p>
     <nav class="navbar" style="background-color: #e3f2fd">
       <div class="container-fluid text-bg-primary" style="justify-content:flex-end"  >
         <% if current_user %>
           <%= link_to('登出', destroy_user_session_path, :method => :delete, class: "px-2") %> |
-          <%= link_to('修改密碼', edit_registration_path(:user)) %>
+          <%= link_to('修改密碼', edit_registration_path(:user), class: "px-2") %>
         <% else %>
           <%= link_to('註冊', new_registration_path(:user) , class: "px-2") %> |
-          <%= link_to('登入', new_session_path(:user)) %>
+          <%= link_to('登入', new_session_path(:user), class: "px-2") %>
         <% end %>
       </div>
     </nav>  

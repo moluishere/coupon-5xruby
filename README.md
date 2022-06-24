@@ -2,7 +2,7 @@
 
 - Ruby version 2.7.2
 
-- ails version 6.1.5
+- Rails version 6.1.5
 
 ## 關於使用者
 

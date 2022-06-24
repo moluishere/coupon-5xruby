@@ -19,3 +19,6 @@
 
 - 建立折價卷（coupon_spec.rb）
 - 使用折價卷（apply_coupon_spec.rb）
+
+## Heroku 部署
+[https://sheltered-bayou-93212.herokuapp.com/](https://sheltered-bayou-93212.herokuapp.com/)

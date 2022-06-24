@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2022_06_22_180811) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.integer "price"
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 2022_06_22_180811) do
     t.string "discount_description"
     t.integer "discount"
     t.string "serial"
-    t.integer "book_id"
+    t.bigint "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "status", default: false
